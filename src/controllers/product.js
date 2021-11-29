@@ -43,7 +43,7 @@ routes.post('/products', async (req, res) => {
       });
     }
 
-    const product = await productModel.create({...body})
+    const product = await productModel.create({...body, provider: req.user._id})
     return res.status(201).send({product})
 
   } catch (err) {
